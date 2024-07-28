@@ -22,7 +22,7 @@ function renderMpgChart(data, max, min) {
   mpg1annotations = d3.annotation().annotations([
     {
       note: {
-        label: "Cylinders > 7 have city MPG less than 20.",
+        label: "Cylinders > 7 have city MPG less than 20. Stair stepping pattern.",
       },
       x: 100,
       y: 150,
@@ -125,7 +125,7 @@ function renderMpgChart2(data, max, min) {
   mpg1annotations = d3.annotation().annotations([
     {
       note: {
-        label: "8 > Cylinders > 3 have city MPG between 10 and 45. Slope close to 1.",
+        label: "8 > Cylinders > 3 have city MPG between 10 and 45. Stair stepping pattern",
       },
       x: 210,
       y: 230,
@@ -281,7 +281,7 @@ function renderMpgChart3(data, max, min) {
   svg
     .append("g")
     .selectAll("circle")
-    .data(data.filter((d) => numberCylindersLessThan > +d.EngineCylinders))
+    .data(data.filter((d) => numberCylindersLessThan > +d.EngineCylinders && +d.EngineCylinders > 0))
     .join("circle")
     .attr("cx", function (d) {
       return x(d.AverageCityMPG);
