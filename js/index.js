@@ -234,10 +234,12 @@ function renderMpgChart3(data, max, min) {
   }
   console.log("CylinderSelectCylinderSelect", numberCylindersLessThan);
 
+  document.getElementById("last-statement").innerHTML = `Cylinders less than ${cylinderSelect}`;
+
   mpg1annotations = d3.annotation().annotations([
     {
       note: {
-        label: "3 > Cylinders have city MPG greater than 25",
+        label:  `${cylinderSelect} > Cylinders have city MPG greater than 25`,
       },
       x: 200,
       y: 150,
