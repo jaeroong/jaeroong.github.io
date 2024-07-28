@@ -22,10 +22,10 @@ function renderMpgChart(data, max, min) {
   mpg1annotations = d3.annotation().annotations([
     {
       note: {
-        label: "Cylinders > 7 have city MPG less than 20",
+        label: "Cylinders > 7 have city MPG less than 20.",
       },
-      x: 50,
-      y: 250,
+      x: 100,
+      y: 150,
       dy: -70,
       dx: 40,
     },
@@ -45,7 +45,8 @@ function renderMpgChart(data, max, min) {
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   var x = d3.scaleLog([10, 150], [0, size - margin.left * 2]).base(10);
-  var y = d3.scaleLog([10, 150], [size - margin.left * 2, 0]).base(10);
+  // var y = d3.scaleLog([1, 15], [size - margin.left * 2, 0])//.base(10);
+  var y = d3.scaleLinear([0, 15], [size - margin.left * 2, 0])//.base(10);
   var xAxis = d3
     .axisBottom(x)
     .tickValues([10, 20, 50, 100])
@@ -53,7 +54,7 @@ function renderMpgChart(data, max, min) {
 
   var yAxis = d3
     .axisLeft(y)
-    .tickValues([10, 20, 50, 100])
+    // .tickValues([10, 20, 50, 100])
     .tickFormat(d3.format("~s"));
 
   svg
@@ -67,7 +68,7 @@ function renderMpgChart(data, max, min) {
       return x(d.AverageCityMPG);
     })
     .attr("cy", function (d) {
-      return y(d.AverageHighwayMPG);
+      return y(d.EngineCylinders);
     })
     .attr("r", function (d) {
       return 2 + +d.EngineCylinders;
@@ -82,14 +83,14 @@ function renderMpgChart(data, max, min) {
 
   svg.append("g").call(mpg1annotations);
 
-  svg
-    .append("line")
-    .style("stroke", "lightgreen")
-    .style("stroke-width", 2)
-    .attr("x1", 0)
-    .attr("y1", size - margin.left * 2)
-    .attr("x2", size - margin.left * 3)
-    .attr("y2", margin.left);
+  // svg
+  //   .append("line")
+  //   .style("stroke", "lightgreen")
+  //   .style("stroke-width", 2)
+  //   .attr("x1", 0)
+  //   .attr("y1", size - margin.left * 2)
+  //   .attr("x2", size - margin.left * 3)
+  //   .attr("y2", margin.left);
 
   d3.select("svg")
     .append("g")
@@ -124,10 +125,10 @@ function renderMpgChart2(data, max, min) {
   mpg1annotations = d3.annotation().annotations([
     {
       note: {
-        label: "8 > Cylinders > 3 have city MPG between 10 and 45.",
+        label: "8 > Cylinders > 3 have city MPG between 10 and 45. Slope close to 1.",
       },
-      x: 170,
-      y: 170,
+      x: 210,
+      y: 230,
       dy: -70,
       dx: 40,
     },
@@ -147,7 +148,9 @@ function renderMpgChart2(data, max, min) {
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   var x = d3.scaleLog([10, 150], [0, size - margin.left * 2]).base(10);
-  var y = d3.scaleLog([10, 150], [size - margin.left * 2, 0]).base(10);
+  // var y = d3.scaleLog([10, 150], [size - margin.left * 2, 0]).base(10);
+  var y = d3.scaleLinear([0, 15], [size - margin.left * 2, 0])//.base(10);
+
   var xAxis = d3
     .axisBottom(x)
     .tickValues([10, 20, 50, 100])
@@ -155,7 +158,7 @@ function renderMpgChart2(data, max, min) {
 
   var yAxis = d3
     .axisLeft(y)
-    .tickValues([10, 20, 50, 100])
+    // .tickValues([10, 20, 50, 100])
     .tickFormat(d3.format("~s"));
 
   svg1
@@ -169,7 +172,7 @@ function renderMpgChart2(data, max, min) {
       return x(d.AverageCityMPG);
     })
     .attr("cy", function (d) {
-      return y(d.AverageHighwayMPG);
+      return y(d.EngineCylinders);
     })
     .attr("r", function (d) {
       return 2 + +d.EngineCylinders;
@@ -183,14 +186,14 @@ function renderMpgChart2(data, max, min) {
   // .on("mouseleave", mpg1tooltipmouseleave);
   svg1.append("g").call(mpg1annotations);
 
-  svg1
-    .append("line")
-    .style("stroke", "lightgreen")
-    .style("stroke-width", 2)
-    .attr("x1", 0)
-    .attr("y1", size - margin.left * 2)
-    .attr("x2", size - margin.left * 3)
-    .attr("y2", margin.left);
+  // svg1
+  //   .append("line")
+  //   .style("stroke", "lightgreen")
+  //   .style("stroke-width", 2)
+  //   .attr("x1", 0)
+  //   .attr("y1", size - margin.left * 2)
+  //   .attr("x2", size - margin.left * 3)
+  //   .attr("y2", margin.left);
 
   console.log("yAxis", yAxis);
   d3.select("svg")
@@ -242,7 +245,7 @@ function renderMpgChart3(data, max, min) {
         label:  `${cylinderSelect} > Cylinders have city MPG greater than 25`,
       },
       x: 200,
-      y: 150,
+      y: 280,
       dy: -70,
       dx: 40,
     },
@@ -263,7 +266,8 @@ function renderMpgChart3(data, max, min) {
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   var x = d3.scaleLog([10, 150], [0, size - margin.left * 2]).base(10);
-  var y = d3.scaleLog([10, 150], [size - margin.left * 2, 0]).base(10);
+  // var y = d3.scaleLog([10, 150], [size - margin.left * 2, 0]).base(10);
+  var y = d3.scaleLinear([0, 15], [size - margin.left * 2, 0])//.base(10);
   var xAxis = d3
     .axisBottom(x)
     .tickValues([10, 20, 50, 100])
@@ -271,7 +275,7 @@ function renderMpgChart3(data, max, min) {
 
   var yAxis = d3
     .axisLeft(y)
-    .tickValues([10, 20, 50, 100])
+    // .tickValues([10, 20, 50, 100])
     .tickFormat(d3.format("~s"));
 
   svg
@@ -283,7 +287,7 @@ function renderMpgChart3(data, max, min) {
       return x(d.AverageCityMPG);
     })
     .attr("cy", function (d) {
-      return y(d.AverageHighwayMPG);
+      return y(d.EngineCylinders);
     })
     .attr("r", function (d) {
       return 2 + +d.EngineCylinders;
@@ -296,14 +300,14 @@ function renderMpgChart3(data, max, min) {
     .on("mousemove", mpg1tooltipmousemove);
   svg.append("g").call(mpg1annotations);
 
-  svg
-    .append("line")
-    .style("stroke", "lightgreen")
-    .style("stroke-width", 2)
-    .attr("x1", 0)
-    .attr("y1", size - margin.left * 2)
-    .attr("x2", size - margin.left * 3)
-    .attr("y2", margin.left);
+  // svg
+  //   .append("line")
+  //   .style("stroke", "lightgreen")
+  //   .style("stroke-width", 2)
+  //   .attr("x1", 0)
+  //   .attr("y1", size - margin.left * 2)
+  //   .attr("x2", size - margin.left * 3)
+  //   .attr("y2", margin.left);
 
   d3.select("svg")
     .append("g")

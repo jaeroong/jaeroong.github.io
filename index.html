@@ -21,27 +21,32 @@
       <div>
         <h2>More Engine Cylinders Are Less Fuel Efficient</h2>
         <p class="mt-4">
-          What is the relationship between the number of engine cylinders and fuel economy? 
-          
+          What is the relationship between the number of engine cylinders and
+          fuel economy?
         </p>
         <p class="mt-4">
-          This data visualization will show that in general, more engine cylinders is associated with 
-          lower Miles Per Gallon (MPG).  That is, engine cylinders are negatively correlated with MPG. 
-          
-          We also included data points for electric vehicles.  Although they don't have cylinders, they
-          are included so the users can compare MPG among different types of engines.  
+          This data visualization will show the following:
+          <li>
+            More engine cylinders are associated with lower Miles Per Gallon
+            (MPG).
+          </li>
+          <li>
+            Highway MPG and and City MPG are correlated with a slope close to 1
+            on logarithmic scale.
+          </li>
+          <li>
+            We also included data points for electric vehicles. Although they
+            don't have cylinders, they are included so the users can compare MPG
+            among different types of engines.
+          </li>
         </p>
         <b>How to use</b>
         <ul>
           <li>Navigate different charts using Prev Next buttons</li>
-          <li>The <b>y-axis</b> is Highway MPG.</li>
-          <li>
-            The <b>x-axis</b> is City MPG.
-          </li>
+          <li>The <b>y-axis</b> is logarithm scaled Highway MPG.</li>
+          <li>The <b>x-axis</b> is logarithm City MPG.</li>
           <li>Circle size represents the number of Cylinders</li>
-          <li>
-            The last chart allows you to select the number of Cylinders
-          </li>
+          <li>The last chart allows you to select the number of Cylinders</li>
         </ul>
       </div>
       <div class="row">
@@ -54,6 +59,12 @@
               role="tabpanel"
               aria-labelledby="list-mpg-list"
             >
+              <br />
+
+              <h3 style="color: blue; margin-left: 100px">
+                Cylinders more than 7
+              </h3>
+              <br />
               <div class="d-flex mt-2 mb-5">
                 <button
                   type="button"
@@ -63,10 +74,6 @@
                   Next →
                 </button>
               </div>
-              <h3 style="color: blue; margin-left: 100px">
-                Cylinders more than 7
-              </h3>
-              <br />
               <div class="row">
                 <div class="col-4">
                   <div class="d-flex">
@@ -86,31 +93,27 @@
               aria-labelledby="list-mpg2"
             >
               <div class="d-flex mt-2 mb-5">
-                <div
-                  class="btn-group"
-                  role="group"
-                  aria-label="Basic outlined example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-outline-primary"
-                    onclick="mpgTab.show();"
-                  >
-                    ← Prev
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-primary"
-                    onclick="mpgTab3.show();"
-                  >
-                    Next →
-                  </button>
-                </div>
+                <h3 style="color: blue; margin-left: 100px">
+                  Cylinders less than 8 but more than 3
+                </h3>
+                <br />
               </div>
-              <h3 style="color: blue; margin-left: 100px">
-                Cylinders less than 8 but more than 3
-              </h3>
-              <br />
+              <div class="d-flex mt-2 mb-5">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  onclick="mpgTab.show();"
+                >
+                  ← Prev
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  onclick="mpgTab3.show();"
+                >
+                  Next →
+                </button>
+              </div>
               <div class="row">
                 <div class="col-4">
                   <div class="d-flex">
@@ -125,6 +128,11 @@
             </div>
 
             <div class="tab-pane fade" id="list-mpg3" role="tabpanel">
+              <br />
+              <h3 id="last-statement" style="color: blue; margin-left: 100px">
+                Cylinders less than 4
+              </h3>
+              <br />
               <div class="d-flex mt-2 mb-5">
                 <button
                   type="button"
@@ -150,11 +158,6 @@
                   </select>
                 </div>
               </div>
-              <br />
-              <h3 id="last-statement" style="color: blue; margin-left: 100px">
-                Cylinders less than 4
-              </h3>
-              <br />
               <div class="row">
                 <div class="col-4">
                   <div class="d-flex">
